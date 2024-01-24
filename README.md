@@ -10,6 +10,6 @@ Este projeto está aberto a melhorias. Sinta-se à vontade para contribuir!
 -------------------------
 Bibliotecas necessárias
 pip install SpeechRecognition
-pip install SpeechRecognition
-pip install gtts
-pip install pygame
+SpeechRecognition
+gtts
+pygame
