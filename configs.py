@@ -1,4 +1,4 @@
-WAKE_WORD = "Oi Dona Lurdes"
+WAKE_WORD = "Oi Dona Maria"
 IDIOMA = 'pt-BR'
 LIMITE_TEMPO_DUVIDA = 5 #Tempo limite para falar a dúvida ao GPT. Em segundos.
 SAUDACOES = [f"Ola, meu querido!",
