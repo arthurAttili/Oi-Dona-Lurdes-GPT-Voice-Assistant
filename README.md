@@ -1,4 +1,4 @@
-# Oi-Dona-Lurdes-GPT-Voice-Assistant
+# Oi-Dona-Maria-GPT-Voice-Assistant
 Um assistente de voz que é uma senhora de 70 anos. Utiliza a API do GPT e Speech Recognition do Google.
 
 Basta clonar o repositório e alterar as configs para determinar personalidade, wake word, modelo do GPT e saudações iniciais.
