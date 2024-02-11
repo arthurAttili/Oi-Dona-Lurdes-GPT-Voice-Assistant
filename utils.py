@@ -1,10 +1,11 @@
 import speech_recognition as sr
 import numpy as np
-from gtts import gTTS
 import requests
 import json
 import pygame
+from openai import OpenAI
 from configs import *
+
 
 def reconhece_audio(wake_word):
     r = sr.Recognizer()
@@ -35,11 +36,18 @@ def reconhece_audio(wake_word):
                 continue
 
 
-def texto_para_fala(texto, idioma='pt-br'):
+def texto_para_fala(input, idioma='pt-br'):
     arquivo_audio = "response.mp3"
-    tts = gTTS(text=texto, lang=idioma)
-    tts.save(arquivo_audio)
 
+    client = OpenAI(api_key=OPENAI_API_KEY)
+    response = client.audio.speech.create(
+        model=MODEL_TTS,
+        voice=VOZ_TTS,
+        input=input,
+    )
+
+    response.stream_to_file(arquivo_audio)
+    
     # Inicializa pygame e reproduz o arquivo de áudio
     pygame.mixer.init()
     pygame.mixer.music.load(arquivo_audio)
@@ -94,7 +102,7 @@ def requestGPT4(chunk):
         output = outputGPT
 
     except requests.exceptions.Timeout:
-        output = "A Lurdes não está. Ela foi tirar uma soneca no momento..."
+        output = "A Maria não está. Ela foi tirar uma soneca no momento..."
 
     print(output)
     return output
